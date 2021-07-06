@@ -2,8 +2,8 @@ from django.db import models
 
 class USER(models.Model):
     email = models.EmailField(primary_key= True)
-    username = models.CharField(max_length= 50)
-    password = models.CharField(max_length= 8)
+    username = models.CharField()
+    password = models.CharField()
     is_admin = models.BooleanField()
 
 class CUSTOMER_DETAILS(models.Model):
