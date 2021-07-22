@@ -23,6 +23,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('bike_app/', include('bike_app.urls')),
+    path('users/', include('users.urls')),
     path('', RedirectView.as_view(url='bike_app/', permanent=True)),
 
-] +     static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

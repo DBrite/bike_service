@@ -7,3 +7,5 @@ def home(request):
 
     return render(request, 'bike_app/home.html')
 
+
+
