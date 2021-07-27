@@ -34,6 +34,6 @@ class SignUpForm(UserCreationForm):
             password=self.cleaned_data['password1'],
             first_name=self.cleaned_data['first_name'],
             last_name=self.cleaned_data['last_name'],
-            phone=self.cleaned_data['phone_number']
+
         )
         return user

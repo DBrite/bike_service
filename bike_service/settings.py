@@ -124,6 +124,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
@@ -136,6 +138,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/bike_app/home'
 LOGIN_URL = '/bike_app/login/'
-LOGOUT_REDIRECT_URL = 'bike_app/login/'
+LOGOUT_REDIRECT_URL = 'login/'
+LOGOUT_URl = 'logout/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
