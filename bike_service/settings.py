@@ -28,7 +28,11 @@ SECRET_KEY = 'django-insecure-f%ko^9!skvie%o42n^@jk6u3i5)+r3h+-h1%zprwo+7-_#(rpw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'bike-service.herokuapp.com'
+]
 
 
 # Application definition
