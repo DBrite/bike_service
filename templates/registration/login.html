@@ -1,103 +1,88 @@
 {% load static %}
-{% block title %}Log In{% endblock %}
-{% block body %}
 
+<!DOCTYPE html>
 <html lang="en">
+<head>
+	<title>Login</title>
 	<meta charset="UTF-8">
-
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="{% static 'images/favicon1.ico' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
 <body>
-<div class="cont">
-  <div class="demo">
-    <div class="login">
-      <div class="login__check"></div>
-      <div class="login__form">
-        <div class="login__row">
-          <svg class="login__icon name svg-icon" viewBox="0 0 20 20">
-            <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
-          </svg>
-          <input type="text" class="login__input name" placeholder="Username"/>
-        </div>
-        <div class="login__row">
-          <svg class="login__icon pass svg-icon" viewBox="0 0 20 20">
-            <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
-          </svg>
-          <input type="password" class="login__input pass" placeholder="Password"/>
-        </div>
-        <button type="button" class="login__submit">Sign in</button>
-        <p class="login__signup">Don't have an account? &nbsp;<a>Sign up</a></p>
-      </div>
-    </div>
-    <div class="app">
-      <div class="app__top">
-        <div class="app__menu-btn">
-          <span></span>
-        </div>
-        <svg class="app__icon search svg-icon" viewBox="0 0 20 20">
-          <!-- yeap, its purely hardcoded numbers straight from the head :D (same for svg above) -->
-          <path d="M20,20 15.36,15.36 a9,9 0 0,1 -12.72,-12.72 a 9,9 0 0,1 12.72,12.72" />
-        </svg>
-        <p class="app__hello">Good Morning!</p>
-        <div class="app__user">
-          <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-512_5.jpg" alt="" class="app__user-photo" />
-          <span class="app__user-notif">3</span>
-        </div>
-        <div class="app__month">
-          <span class="app__month-btn left"></span>
-          <p class="app__month-name">March</p>
-          <span class="app__month-btn right"></span>
-        </div>
-      </div>
-      <div class="app__bot">
-        <div class="app__days">
-          <div class="app__day weekday">Sun</div>
-          <div class="app__day weekday">Mon</div>
-          <div class="app__day weekday">Tue</div>
-          <div class="app__day weekday">Wed</div>
-          <div class="app__day weekday">Thu</div>
-          <div class="app__day weekday">Fri</div>
-          <div class="app__day weekday">Sad</div>
-          <div class="app__day date">8</div>
-          <div class="app__day date">9</div>
-          <div class="app__day date">10</div>
-          <div class="app__day date">11</div>
-          <div class="app__day date">12</div>
-          <div class="app__day date">13</div>
-          <div class="app__day date">14</div>
-        </div>
-        <div class="app__meetings">
-          <div class="app__meeting">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-80_5.jpg" alt="" class="app__meeting-photo" />
-            <p class="app__meeting-name">Feed the cat</p>
-            <p class="app__meeting-info">
-              <span class="app__meeting-time">8 - 10am</span>
-              <span class="app__meeting-place">Real-life</span>
-            </p>
-          </div>
-          <div class="app__meeting">
-            <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-512_5.jpg" alt="" class="app__meeting-photo" />
-            <p class="app__meeting-name">Feed the cat!</p>
-            <p class="app__meeting-info">
-              <span class="app__meeting-time">1 - 3pm</span>
-              <span class="app__meeting-place">Real-life</span>
-            </p>
-          </div>
-          <div class="app__meeting">
-            <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-512_5.jpg" alt="" class="app__meeting-photo" />
-            <p class="app__meeting-name">FEED THIS CAT ALREADY!!!</p>
-            <p class="app__meeting-info">
-              <span class="app__meeting-time">This button is just for demo ></span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="app__logout">
-        <svg class="app__logout-icon svg-icon" viewBox="0 0 20 20">
-          <path d="M6,3 a8,8 0 1,0 8,0 M10,0 10,12"/>
-        </svg>
-      </div>
-    </div>
-  </div>
-</div>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="{% static 'images/img-01.png' %}" alt="IMG">
+				</div>
+
+				<form class="login100-form validate-form" method="post">
+                    {% csrf_token %}
+					<span class="login100-form-title">
+						Member Login
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Valid username is required: ex@abc.xyz">
+						<input class="input100" type="text" name="username" placeholder="username">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="password" name="password" placeholder="password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit">
+							Login
+						</button>
+					</div>
+
+					<div class="text-center p-t-12">
+						<span class="txt1">
+							Forgot
+						</span>
+                        <a class="links" href="{% url 'users:password_reset' %}">Username/Password?</a>
+						</a>
+					</div>
+
+					<div class="text-center p-t-136">
+                        <a class="links" href="{% url 'users:register' %}">Create your Account</a>
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	+
+
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+	<script src="{% static 'vendor/tilt/tilt.jquery.min.js' %}"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+	<script src="{% static 'js/main1.js' %}"></script>
+
 </body>
 </html>
-{% endblock body %}

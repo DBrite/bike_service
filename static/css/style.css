@@ -1,0 +1,115 @@
+
+/*---------------------------------
+    Header
+-----------------------------------*/
+
+section.header .logo_img {
+    vertical-align: top;
+}
+
+section.header {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+section.header .header-bg img {
+    /*width: 100%;*/
+    position: relative;
+    z-index: 1;
+    height: auto;
+}
+
+section.header .header-bg {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+section.header .header-bg .bg-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    z-index: 2;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(33, 33, 33, 0.85);
+}
+
+
+
+section.header .slantbar {
+
+    background-color: #FFE220;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    top: 0px;
+    left: -11%;
+    padding: 0px;
+    width: 45%;
+    -moz-transform: skewX(-20deg);
+    -o-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+    -ms-transform: skewX(-20deg);
+    -webkit-transform: skewX(-20deg);
+}
+
+
+
+
+/*----------------  Mobile First Method  ---------------*/
+
+
+/* Custom, iPhone Retina */
+
+@media only screen and (min-width: 320px) {}
+
+
+/* Extra Small Devices, Phones */
+
+@media only screen and (min-width: 480px) {}
+
+
+/* Small Devices, Tablets */
+
+@media only screen and (min-width: 768px) {}
+
+
+/* Medium Devices, Desktops */
+
+@media only screen and (min-width: 992px) {}
+
+
+/* Large Devices, Wide Screens */
+
+@media only screen and (min-width: 1200px) {}
+
+
+/*==========  Non-Mobile First Method  ==========*/
+
+
+/* Large Devices, Wide Screens */
+
+@media only screen and (max-width: 1200px) {}
+
+
+/* Medium Devices, Desktops */
+
+@media only screen and (max-width: 992px) {}
+
+
+/* Small Devices, Tablets */
+
+@media only screen and (max-width: 950px) { section.header .slantbar { display: none; } }
+
+
+/* Extra Small Devices, Phones */
+
+@media only screen and (max-width: 480px) {}
+
+
+/* Custom, iPhone Retina */
+
+@media only screen and (max-width: 320px) {}

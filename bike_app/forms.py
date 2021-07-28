@@ -11,7 +11,7 @@ class SignUpForm(UserCreationForm):
     email = forms.EmailField(label='Email')
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Confirm Password', widget=forms.PasswordInput)
-    phone = forms.CharField(label="Phone", max_length=10)
+    phone = forms.IntegerField(label="Phone")
 
     def clean_username(self):
         username = self.cleaned_data['username'].lower()
@@ -27,13 +27,6 @@ class SignUpForm(UserCreationForm):
             raise ValidationError("Email already exists")
         return email
 
-    def clean_phone(self):
-        phone = self.cleaned_data['Phone'].lower()
-        results = User.objects.filter(phone=phone)
-        if results.count():
-            raise ValidationError("Phone number already exists")
-        return phone
-
     def save(self, commit=True, *args, **kwargs):
         user = User.objects.create_user(
             self.cleaned_data['username'],
@@ -41,6 +34,6 @@ class SignUpForm(UserCreationForm):
             password=self.cleaned_data['password1'],
             first_name=self.cleaned_data['first_name'],
             last_name=self.cleaned_data['last_name'],
-            phone=self.cleaned_data['phone_number']
+
         )
         return user

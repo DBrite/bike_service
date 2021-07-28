@@ -27,7 +27,7 @@ class CUSTOMER_DETAIL(models.Model):
     customer_details_id = models.AutoField(primary_key=True)
     user = models.ForeignKey(USER, on_delete=models.CASCADE)
     address = models.CharField(max_length=10)
-    phone = models.CharField(max_length=10)
+    phone = models.IntegerField()
     bike_registered_number = models.CharField(max_length=10)
     user_bike_type = models.CharField(choices=BIKE_TYPE_CHOICES, max_length=10)
 
