@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 
 class USER(models.Model):
     email = models.EmailField(primary_key=True)
@@ -8,6 +10,7 @@ class USER(models.Model):
 
     class Meta:
         verbose_name = "User"
+
 
 Regular = 'Regular'
 Sports = 'Sports'
@@ -19,16 +22,18 @@ BIKE_TYPE_CHOICES = (
     (No_Gear, 'No_Gear')
 )
 
+
 class CUSTOMER_DETAIL(models.Model):
     customer_details_id = models.AutoField(primary_key=True)
     user = models.ForeignKey(USER, on_delete=models.CASCADE)
     address = models.CharField(max_length=10)
-    mobile_number = models.CharField(max_length=10)
+    phone = models.IntegerField()
     bike_registered_number = models.CharField(max_length=10)
     user_bike_type = models.CharField(choices=BIKE_TYPE_CHOICES, max_length=10)
 
     class Meta:
         verbose_name = "Customer Detail"
+
 
 class CUSTOMER_APPOINTMENT(models.Model):
     appointment_id = models.AutoField(primary_key=True)
@@ -41,8 +46,9 @@ class CUSTOMER_APPOINTMENT(models.Model):
     class Meta:
         verbose_name = "Customer Appointment"
 
+
 class ALARM_APPOINTMENT(models.Model):
-    alarm_id = models.AutoField(primary_key = True)
+    alarm_id = models.AutoField(primary_key=True)
     user_appointment = models.ForeignKey(CUSTOMER_DETAIL, on_delete=models.CASCADE)
     alarm_timeDate = models.DateTimeField()
 
@@ -54,15 +60,13 @@ Bike_Service = 'Bike_Service'
 Car_Service = 'Car_Service'
 
 
-
 class SERVICE_CENTRE(models.Model):
-
     SERVICES_PROVIDED_CHOICES = (
         (Bike_Service, 'Bike_Service'),
         (Car_Service, 'Car_Service'),
     )
 
-    service_centre_id = models.AutoField(primary_key = True)
+    service_centre_id = models.AutoField(primary_key=True)
     service_name = models.CharField(max_length=10)
     services_provided = models.CharField(max_length=20, choices=SERVICES_PROVIDED_CHOICES)
     service_centre_address = models.CharField(max_length=10)
@@ -72,8 +76,9 @@ class SERVICE_CENTRE(models.Model):
     class Meta:
         verbose_name = "Service Centre"
 
+
 class SERVICING_DETAILS(models.Model):
-    servicing_details_id = models.AutoField(primary_key = True)
+    servicing_details_id = models.AutoField(primary_key=True)
     user = models.ForeignKey(USER, on_delete=models.CASCADE)
     job_done = models.BooleanField()
     service_details = models.TextField()
@@ -105,9 +110,10 @@ BIKE_TYPE_CHOICES = (
     (Sports, 'Sports'),
     (No_Gear, 'No_Gear')
 )
-class BIKE_SALE_DETAILS(models.Model):
 
-    bike_id = models.CharField(primary_key= True, max_length=10)
+
+class BIKE_SALE_DETAILS(models.Model):
+    bike_id = models.CharField(primary_key=True, max_length=10)
     bike_type = models.CharField(choices=BIKE_TYPE_CHOICES, max_length=10)
     bike_brand = models.CharField(max_length=10)
     bike_model = models.CharField(max_length=10)
@@ -121,7 +127,7 @@ class BIKE_SALE_DETAILS(models.Model):
 
 
 class PAYMENT(models.Model):
-    transaction_id = models.AutoField(primary_key = True)
+    transaction_id = models.AutoField(primary_key=True)
     pay_amount = models.PositiveIntegerField()
     payment_user = models.ForeignKey(USER, on_delete=models.CASCADE)
     payment_description = models.CharField(max_length=10)
@@ -131,7 +137,6 @@ class PAYMENT(models.Model):
 
 
 class BIKE_DELIVERY_DETAILS(models.Model):
-
     delivery_location_id = models.CharField(max_length=10, primary_key=True)
     bike_id = models.ForeignKey(BIKE_SALE_DETAILS, on_delete=models.CASCADE)
     delivery_location_address = models.CharField(max_length=10)
@@ -140,7 +145,7 @@ class BIKE_DELIVERY_DETAILS(models.Model):
     bike_type = models.CharField(max_length=10, choices=BIKE_TYPE_CHOICES)
     bike_brand = models.CharField(max_length=10)
     bike_model = models.CharField(max_length=10)
-    bike_colour = models.CharField(max_length=10,choices=BIKE_COLOUR_CHOICES)
+    bike_colour = models.CharField(max_length=10, choices=BIKE_COLOUR_CHOICES)
 
     class Meta:
         verbose_name = "Bike Delivery Detail"
