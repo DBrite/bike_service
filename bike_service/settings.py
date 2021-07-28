@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bike_app.apps.BikeAppConfig'
+    'bike_app.apps.BikeAppConfig',
 
 ]
 
@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'bike_service.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd6vjovaf6a9fv7',
+        'USER': 'sdjduftvnloman',
+        'PASSWORD': '7f42ea8bb1c5c8c1ff70ea485c27df350c8e3d73f7eb398000e1b45826a05df9',
+        'HOST': 'ec2-54-220-170-192.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
     }
 }
 

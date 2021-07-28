@@ -22,6 +22,9 @@ def sales(request):
 def contact(request):
     return render(request, 'bike_app/contact.html')
 
+def contactd41d(request):
+    return render(request, 'bike_app/contactd41d.html')
+
 
 
 
