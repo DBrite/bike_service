@@ -390,7 +390,23 @@ function serviceform(d){
 					    <a href="{% url 'bike_app:sales' %}">Sales</a>
 					    <a href="#">Blog</a>
 					    <a href="{% url 'bike_app:contact' %}">Contact Us</a>
-                        <a href="{% url 'users:logout' %}">logout</a>
+                        <a href="{% url 'users:logout' %}"
+                                style="font-size: 15px;
+                                line-height: 1;
+                                color: #fff;
+                                text-transform: capitalize;
+                                width: 100%;
+                                height: 20px;
+                                border-radius: 15px;
+                                background: #f6ce03;
+                                display: -webkit-box;
+                                display: -webkit-flex;
+                                display: -moz-box;
+                                display: -ms-flexbox;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                padding: 0 25px;">logout</a>
 					</div>
 	
 				</div><!-- END col-lg-4 -->
@@ -413,7 +429,7 @@ function serviceform(d){
 {#                                    <li class="profile-li"><a class="profile-links" href="#"> My Order</a></li>#}
 {#                                    <li class="profile-li"><a class="profile-links" href="#">Gift Card</a></li>#}
 {#                                    <li class="profile-li"><a class="profile-links" href="#">Change Password </a></li>#}
-                                    <li class="upper-links"><a class="links"href="{% url 'users:logout' %}" style="background-color: #d39e00">logout</a></li>
+                                    <li class="upper-links"><a class="links"href="{% url 'users:logout' %}">logout</a></li>
 {#                                </ul>#}
                                 </li>
             				</ul>
