@@ -26,4 +26,5 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('', RedirectView.as_view(url='bike_app/', permanent=True)),
 
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
