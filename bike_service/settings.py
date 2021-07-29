@@ -82,17 +82,23 @@ WSGI_APPLICATION = 'bike_service.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'd6vjovaf6a9fv7',
+#         'USER': 'sdjduftvnloman',
+#         'PASSWORD': '7f42ea8bb1c5c8c1ff70ea485c27df350c8e3d73f7eb398000e1b45826a05df9',
+#         'HOST': 'ec2-54-220-170-192.eu-west-1.compute.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd6vjovaf6a9fv7',
-        'USER': 'sdjduftvnloman',
-        'PASSWORD': '7f42ea8bb1c5c8c1ff70ea485c27df350c8e3d73f7eb398000e1b45826a05df9',
-        'HOST': 'ec2-54-220-170-192.eu-west-1.compute.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -145,8 +151,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/bike_app/home'
-LOGIN_URL = '/bike_app/login/'
-LOGOUT_REDIRECT_URL = 'login/'
-LOGOUT_URl = 'logout/'
+LOGIN_URL = '/users/accounts/login/'
+LOGOUT_REDIRECT_URL = '/users/accounts/login/'
+LOGOUT_URl = 'users/logout/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
