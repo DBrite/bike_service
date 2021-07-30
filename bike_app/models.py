@@ -37,11 +37,23 @@ class CUSTOMER_DETAIL(models.Model):
 
 class CUSTOMER_APPOINTMENT(models.Model):
     appointment_id = models.AutoField(primary_key=True)
-    user_appointment = models.ForeignKey(CUSTOMER_DETAIL, on_delete=models.CASCADE)
+    user_appointment = models.ForeignKey(User, on_delete=models.CASCADE)
     pickup_address = models.CharField(max_length=10)
     pickup_time = models.DateTimeField()
     drop_off_address = models.CharField(max_length=10)
     drop_off_time = models.DateTimeField()
+    SelectService = models.CharField(max_length=20)
+    comp_name = models.CharField(max_length=30)
+    brnd_year = models.CharField(max_length=4)
+    veh_model = models.CharField(max_length=20)
+    service_type = models.CharField(max_length=50)
+    add_service = models.CharField(max_length=100)
+    select_date = models.DateTimeField()
+    customer_mali = models.EmailField()
+    customer_num = models.CharField(max_length=13)
+
+
+
 
     class Meta:
         verbose_name = "Customer Appointment"
@@ -105,11 +117,11 @@ BIKE_COLOUR_CHOICES = (
     (Black, 'Black'),
 )
 
-BIKE_TYPE_CHOICES = (
-    (Regular, 'Regular'),
-    (Sports, 'Sports'),
-    (No_Gear, 'No_Gear')
-)
+# BIKE_TYPE_CHOICES = (
+#     (Regular, 'Regular'),
+#     (Sports, 'Sports'),
+#     (No_Gear, 'No_Gear')
+# )
 
 
 class BIKE_SALE_DETAILS(models.Model):

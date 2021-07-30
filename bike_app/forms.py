@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django import forms
 from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import UserCreationForm
-
+from bike_app.models import CUSTOMER_APPOINTMENT
 
 class SignUpForm(UserCreationForm):
     username = forms.CharField(label='Username', min_length=4, max_length=150)
@@ -37,3 +37,14 @@ class SignUpForm(UserCreationForm):
 
         )
         return user
+
+
+class CustomerAppointmentForm(forms.ModelForm):
+
+    class Meta:
+        model = CUSTOMER_APPOINTMENT
+        fields = '__all__'
+        exclude = [
+            'user_appointment',
+            'appointment_id',
+        ]

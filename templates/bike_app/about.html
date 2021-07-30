@@ -137,8 +137,24 @@ $(document).ready(function(){
 					    <a href="{% url 'bike_app:cars' %}"  >Cars</a>
 					    <a href="{% url 'bike_app:bikes' %}"  >Bikes</a>
 					    <a href="{% url 'bike_app:sales' %}"  >Sales</a>
-					    <a href="#">Blog</a>
 					    <a href="{% url 'bike_app:contact' %}"  >Contact Us</a>
+                        <a href="{% url 'users:logout' %}" style="font-size: 15px;
+                                line-height: 1;
+                                color: #fff;
+                                text-transform: capitalize;
+                                width: 50%;
+                                height: 30px;
+                                border-radius: 15px;
+                                background: #f6ce03;
+                                {#display: -webkit-box;#}
+                                {#display: -webkit-flex;#}
+                                {#display: -moz-box;#}
+                                {#display: -ms-flexbox;#}
+                                display: flex;
+                                flex-shrink: inherit;
+                                justify-content: center;
+                                align-items: center;
+                                padding: 0 25px;">logout</a>
 					</div>
 				</div><!-- END col-lg-4 -->
 				<div class="col-lg-8 col-md-8  col-sm-8">
@@ -150,20 +166,23 @@ $(document).ready(function(){
             				<ul class="largenav pull-right">
                 				<li class="upper-links"><a class="links" href="{% url 'bike_app:home' %}"  >Home</a></li>
                 				<li class="upper-links"><a class="links" href="{% url 'bike_app:about' %}" style='color:#FFE220;font-weight:500'>About Us</a></li>
-                				<li class="upper-links"><a class="links" href="{% url 'bike_app:cars' %}"  >Cars</a></li>
-                				<li class="upper-links"><a class="links" href="{% url 'bike_app:bikes' %}"  >Bikes</a></li>
+                			  <li class="upper-links dropdown"><a class="links" href="#">Services</a>
+                                <ul class="dropdown-menu">
+                                    <li class="upper-links"><a class="links" href="{% url 'bike_app:cars' %}">Cars</a></li>
+                				    <li class="upper-links"><a class="links" href="{% url 'bike_app:bikes' %}">Bikes</a></li>
+                                </ul>
+                                </li>
 				                <li class="upper-links"><a class="links" href="{% url 'bike_app:sales' %}"  >Sales</a></li>
-				                <li class="upper-links"><a class="links" href="#">Blog</a></li>
+                                <li class="upper-links"><a class="links" href="{% url 'bike_app:centers' %}">Service Centers</a></li>
 				                <li class="upper-links"><a class="links" href="{% url 'bike_app:contact' %}"  >Contact Us</a></li>
-                    <li class="upper-links dropdown"><a class="links" href="#">My Account</a>
-                    <ul class="dropdown-menu">
+{#                    <li class="upper-links dropdown"><a class="links" href="#">My Account</a>#}
+{#                    <ul class="dropdown-menu">#}
 {#                        <li class="profile-li"><a class="profile-links" href="#"> My Order</a></li>#}
 {#                        <li class="profile-li"><a class="profile-links" href="#">Gift Card</a></li>#}
-                        <li class="profile-li"><a class="profile-links" href="#">Change Password </a></li>
-                        <li class="profile-li"><a class="profile-links" href="{% url 'users:logout' %}"">logout</a></li>
+{#                        <li class="profile-li"><a class="profile-links" href="#">Change Password </a></li>#}
+                        <li class="upper-links"><a class="links"href="{% url 'users:logout' %}">logout</a></li>
                     </ul>
-                    </li>
-            				</ul>
+                        </div>
        					</div>        
     				</div>
 				</div>

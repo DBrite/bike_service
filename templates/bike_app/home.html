@@ -165,56 +165,57 @@ $(document).ready(function(){
 
 
 
-function serviceform(d){ 
+function serviceform(d) {
 
-	var brnd_year=$("#brnd_year").val();
-	var veh_model=$("#veh_model").val();
-		$("input[name='service_type']:checked").each(function() { 
-	    var service_type = $(this).val();
-		});
-	var add_service=$("#add_service").val();
-	var select_date=$("#datepicker").val();	
-	var customer_name=$("#customer_name").val();
-	var customer_mali=$("#customer_mali").val();
-	var customer_num=$("#customer_num").val();
+    var brnd_year = $("#brnd_year").val();
+    var veh_model = $("#veh_model").val();
+    $("input[name='service_type']:checked").each(function () {
+        var service_type = $(this).val();
+    });
+    var add_service = $("#add_service").val();
+    var select_date = $("#datepicker").val();
+    var customer_name = $("#customer_name").val();
+    var customer_mali = $("#customer_mali").val();
+    var customer_num = $("#customer_num").val();
 
-	var mail=/^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/; 
-	if(brnd_year=='' || veh_model=='' || service_type=='' || select_date=='' || customer_name=='' || customer_mali=='' || customer_num==''){	
-		//var name= return $("#form_name").attr("name");	
-		//$("#form_error").html("Please enter"+$("#form_name").attr("name"));
-		$(this).attr('name');
-		$("#form_error").html("Please Enter All fieldss");
-		return false;
-	}
-	else if(!customer_mali.match(mail)){
-		$("#form_error").html("Please Enter Valid Email id");
-		$("#customer_mali").css("border", "2px solid #dad9d9");
-		return false;
-	}
-	else {
-		$("#form_error").html("Saving.. Please wait!");
-		$("#form_email").css("border", "none"); 
-		
-		    var myData = $(d).serialize();
-	$.ajax({
-    type: "POST",
-    url: "form_actions.php",
-     data: myData,
-    cache: false,
-    /*beforeSend: function() {
-    $("#loaderId").html("<img src='images/loader.gif'>Checking availability");
-            },*/          
-    success: function(result){ 
-        
-	     if(result=="success"){
-	        
-			$("#form_error").html("Booking Done..!");
-		    $("#form_frm")[0].reset();
-	    }
-	}
-    });  	
-     }
- 	
+    var mail = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+    if (brnd_year == '' || veh_model == '' || service_type == '' || select_date == '' || customer_name == '' || customer_mali == '' || customer_num == '') {
+        //var name= return $("#form_name").attr("name");
+        //$("#form_error").html("Please enter"+$("#form_name").attr("name"));
+        $(this).attr('name');
+        $("#form_error").html("Please Enter All fieldss");
+        return false;
+    } else if (!customer_mali.match(mail)) {
+        $("#form_error").html("Please Enter Valid Email id");
+        $("#customer_mali").css("border", "2px solid #dad9d9");
+        return false;
+    }
+    {#else {#}
+    {#$("#form_error").html("Saving.. Please wait!");#}
+    {#	$("#form_email").css("border", "none"); #}
+    {#	#}
+    {#	    var myData = $(d).serialize();#}
+    {#$.ajax({#}
+    {#type: "POST",#}
+    {#url: "forms.py",#}
+    {# data: myData,#}
+    {#cache: false,#}
+    {#/*beforeSend: function() {#}
+    {#$("#loaderId").html("<img src='images/loader.gif'>Checking availability");#}
+    {#        },*/          #}
+    {#success: function(result){ #}
+    {#    #}
+    {#     if(result=="success"){#}
+    {#        #}
+    {#		$("#form_error").html("Booking Done..!");#}
+    {#	    $("#form_frm")[0].reset();#}
+    {#    }#}
+    {#}#}
+    }
+}
+    {#} 	#}
+    {# }#}
+ 	{##}
 }
 </script>
 
@@ -232,7 +233,8 @@ function serviceform(d){
         <div class="col-lg-1">&nbsp;</div>
         <div class="col-lg-10">
 	        <div class="modal-body qucik_cont">
-	          <form id="form_frm">
+	          <form  method="post">
+                  {% csrf_token %}
 			<div id="form_error" class="err_msg" style="margin-top: -10px;margin-bottom: 10px;">&nbsp;</div>
 			
 			       <div class="row">
@@ -242,8 +244,7 @@ function serviceform(d){
 	          	</select>
 	          </div>
 	          </div>
-			
-			
+
 			<div class="formset" style="display:none">
 	          <div class="row">
 	          <div class="col-lg-4 carmodels">
@@ -307,8 +308,42 @@ function serviceform(d){
 	          			<label>Phone Number</label>
 	          		</div>
 	          	</div>
-	          </div>
-				<input type="button" name="" value="Send Message" class="btn_more mdl_btn" onclick="serviceform('#form_frm');">
+              </div>
+
+                  <div class="row"><h4>Pickup and Drop off Details</h4>
+
+              <div class="col-lg-4">
+                  <div class="inp_cls">
+                      <input class="effect-161" type="text" value="" placeholder="" id="pickup_address" name="pickup_address">
+                      <label>Pickup Address</label>
+                  </div>
+              </div>
+
+              <div class="col-lg-4">
+                  <div class="inp_cls">
+                      <input class="effect-161" type="text" value="" placeholder="" id="pickup_time" name="pickup_time">
+                      <label>Pickup Time</label>
+                  </div>
+              </div>
+
+              <div class="col-lg-4">
+                  <div class="inp_cls">
+                      <input class="effect-161" type="text" value="" placeholder="" id="drop_off_address" name="drop_off_address">
+                      <label>Drop Off Address</label>
+                  </div>
+              </div>
+
+              <div class="col-lg-4">
+                  <div class="inp_cls">
+                      <input class="effect-161" type="text" value="" placeholder="" id="drop_off_time" name="drop_off_time">
+                      <label>Drop Off Time</label>
+                  </div>
+              </div>
+
+	          <div>
+				<input type="submit" value="Send Message" class="btn_more mdl_btn">
+            </div>
+            </div>
             </div>
               </form>
 				
@@ -388,10 +423,9 @@ function serviceform(d){
 					    <a href="{% url 'bike_app:cars' %}">Cars</a>
 					    <a href="{% url 'bike_app:bikes' %}">Bikes</a>
 					    <a href="{% url 'bike_app:sales' %}">Sales</a>
-					    <a href="#">Blog</a>
+					    <a href="{% url 'bike_app:centers' %}">Service Centers</a>
 					    <a href="{% url 'bike_app:contact' %}">Contact Us</a>
-                        <a href="{% url 'users:logout' %}"
-                                style="font-size: 15px;
+                        <a href="{% url 'users:logout' %}" style="font-size: 15px;
                                 line-height: 1;
                                 color: #fff;
                                 text-transform: capitalize;
@@ -408,7 +442,7 @@ function serviceform(d){
                                 justify-content: center;
                                 align-items: center;
                                 padding: 0 25px;">logout</a>
-					</div>
+					    </div>
 	
 				</div><!-- END col-lg-4 -->
 				<div class="col-lg-8 col-md-8  col-sm-8">
@@ -420,10 +454,14 @@ function serviceform(d){
             				<ul class="largenav pull-right">
                 				<li class="upper-links"><a class="links" href="{% url 'bike_app:home' %}">Home</a></li>
                 				<li class="upper-links"><a class="links" href="{% url 'bike_app:about' %}">About Us</a></li>
-                				<li class="upper-links"><a class="links" href="{% url 'bike_app:cars' %}">Cars</a></li>
-                				<li class="upper-links"><a class="links" href="{% url 'bike_app:bikes' %}">Bikes</a></li>
+                                <li class="upper-links dropdown"><a class="links" href="#">Services</a>
+                                <ul class="dropdown-menu">
+                                    <li class="upper-links"><a class="links" href="{% url 'bike_app:cars' %}">Cars</a></li>
+                				    <li class="upper-links"><a class="links" href="{% url 'bike_app:bikes' %}">Bikes</a></li>
+                                </ul>
+                                </li>
 				                <li class="upper-links"><a class="links" href="{% url 'bike_app:sales' %}">Sales</a></li>
-				                <li class="upper-links"><a class="links" href="#">Blog</a></li>
+				                <li class="upper-links"><a class="links" href="{% url 'bike_app:centers' %}">Service Centers</a></li>
 				                <li class="upper-links"><a class="links" href="{% url 'bike_app:contact' %}">Contact Us</a></li>
 {#                                <li class="upper-links dropdown"><a class="links" href="#">My Account</a>#}
 {#                                <ul class="dropdown-menu">#}
@@ -431,7 +469,7 @@ function serviceform(d){
 {#                                    <li class="profile-li"><a class="profile-links" href="#">Gift Card</a></li>#}
 {#                                    <li class="profile-li"><a class="profile-links" href="#">Change Password </a></li>#}
                                     <li class="upper-links"><a class="links"href="{% url 'users:logout' %}">logout</a></li>
-{#                                </ul>#}
+                                </ul>
                                 </li>
             				</ul>
        					</div>        
@@ -507,7 +545,7 @@ function serviceform(d){
 						<h1>1000<sup>+</sup></h1><h4>Happy Customers</h4>
 					</div>
 					<div class="col-lg-3 col-md-3 col-sm-3">
-						<h1>250<sup>+</sup></h1><h4>Services</h4>
+						<h1>100<sup>+</sup></h1><h4>Services</h4>
 					</div>
 					<div class="col-lg-3 col-md-3 col-sm-3">
 						<h1>100<sup>+</sup></h1><h4>Workshops</h4>
@@ -738,6 +776,7 @@ function serviceform(d){
 				<a href="{% url 'bike_app:bikes' %}"><li>Bikes</li></a>
 				<a href="{% url 'bike_app:cars' %}"><li>Cars</li></a>
 				<a href="{% url 'bike_app:sales' %}"><li>Sales</li></a>
+                <a href="{% url 'bike_app:centers' %}"><li>Service Centers</li></a>
 				<a href="{% url 'bike_app:contact' %}"><li>Contact Us</li></a>
 			</ul>
 		</div>

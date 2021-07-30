@@ -13,5 +13,6 @@ urlpatterns = [
     path('sales/', sales, name='sales'),
     path('contact/', contact, name='contact'),
     path('contactd41d/', contactd41d, name='contactd41d'),
+    path('centers/', centers, name='centers'),
 
 ]
