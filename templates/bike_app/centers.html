@@ -327,10 +327,10 @@ $(document).ready(function(){
 			<form id="cont_rfm" method="post">
                 {% csrf_token %}
 
-             <input class="searchInput" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+             <input class="searchInput" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for service centers..">
 
             <ul id="myUL" style="display: none">
-              <li><a href="#">Adele</a></li>
+              <li><a href="{% url 'bike_app:contact' %}">Adele</a></li>
               <li><a href="#">Agnes</a></li>
 
               <li><a href="#">Billy</a></li>
@@ -348,19 +348,19 @@ $(document).ready(function(){
 {#	          	</select>#}
 {#	          </div>#}
 {#	          </div>#}
-			<div class="inp_cls">
-			<input class="effect-16" type="text" value="" placeholder="" id="form_name" name="form_name" onKeyPress="return chknam(event);"><label>Name</label>
-	        </div>
-	        <div class="inp_cls">
-			<input class="effect-16" type="text" value="" placeholder="" id="form_num" name="form_num" onKeyPress="return chknum(event);"><label>Phone Number</label>
-			</div>
-			<div class="inp_cls">
-			<input class="effect-16" type="text" value="" placeholder="" id="form_email" name="form_email"><label>Email</label>
-			</div>
-			<div class="inp_cls">
-			<textarea placeholder="" id="form_msg" name="form_msg"  class="effect-16"></textarea><label class="msg_li">Message</label>
-			</div>
-			<input type="button" name="" value="Send Message" class="btn_more" onclick="cont_submit();">
+{#			<div class="inp_cls">#}
+{#			<input class="effect-16" type="text" value="" placeholder="" id="form_name" name="form_name" onKeyPress="return chknam(event);"><label>Name</label>#}
+{#	        </div>#}
+{#	        <div class="inp_cls">#}
+{#			<input class="effect-16" type="text" value="" placeholder="" id="form_num" name="form_num" onKeyPress="return chknum(event);"><label>Phone Number</label>#}
+{#			</div>#}
+{#			<div class="inp_cls">#}
+{#			<input class="effect-16" type="text" value="" placeholder="" id="form_email" name="form_email"><label>Email</label>#}
+{#			</div>#}
+{#			<div class="inp_cls">#}
+{#			<textarea placeholder="" id="form_msg" name="form_msg"  class="effect-16"></textarea><label class="msg_li">Message</label>#}
+{#			</div>#}
+{#			<input type="button" name="" value="Send Message" class="btn_more" onclick="cont_submit();">#}
 			</form>
 
 			</div>
