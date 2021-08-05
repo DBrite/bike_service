@@ -63,26 +63,26 @@ function more_read(str){
 
 
 
-function cont_submit(){ 
-	var form_name=$("#form_name").val();
-	var form_num=$("#form_num").val();
-	var form_email=$("#form_email").val();
-	var form_msg=$("#form_msg").val();
-	var mail=/^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/; 
-	if(form_name=='' || form_num=='' || form_email=='' || form_msg==''){	
-		//var name= return $("#form_name").attr("name");	
-		//$("#form_error").html("Please enter"+$("#form_name").attr("name"));
-		$("#form_error1").html("Please Enter All fields");
-		return false;
-	}
-	else if(!form_email.match(mail)){
-		$("#form_error1").html("Please Enter Valid Email id");
-		$("#form_email").css("border", "2px solid #f00");
-		return false;
-	}
-	else {
-		$("#form_error1").html("Saving.. Please wait!"); 
-		$("#form_email").css("border", "none");
+{#function cont_submit(){ #}
+{#	var form_name=$("#form_name").val();#}
+{#	var form_num=$("#form_num").val();#}
+{#	var form_email=$("#form_email").val();#}
+{#	var form_msg=$("#form_msg").val();#}
+{#	var mail=/^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/; #}
+{#	if(form_name=='' || form_num=='' || form_email=='' || form_msg==''){	#}
+{#		//var name= return $("#form_name").attr("name");	#}
+{#		//$("#form_error").html("Please enter"+$("#form_name").attr("name"));#}
+{#		$("#form_error1").html("Please Enter All fields");#}
+{#		return false;#}
+{#	}#}
+{#	else if(!form_email.match(mail)){#}
+{#		$("#form_error1").html("Please Enter Valid Email id");#}
+{#		$("#form_email").css("border", "2px solid #f00");#}
+{#		return false;#}
+{#	}#}
+{#	else {#}
+{#		$("#form_error1").html("Saving.. Please wait!"); #}
+{#		$("#form_email").css("border", "none");#}
 
 	var web_details=form_name+'anu123'+form_email+'anu123'+form_msg+'anu123'+form_num; 
 	//alert('service_details'); 
@@ -362,7 +362,8 @@ function serviceform(d){
         <div class="col-lg-1">&nbsp;</div>
         <div class="col-lg-10">
 	        <div class="modal-body qucik_cont">
-	          <form id="form_frm">
+	          <form id="form_frm" method="post">
+                  {% csrf_token %}
 			<div id="form_error" class="err_msg" style="margin-top: -10px;margin-bottom: 10px;">&nbsp;</div>
 			
 			       <div class="row">
@@ -438,7 +439,7 @@ function serviceform(d){
 	          		</div>
 	          	</div>
 	          </div>
-				<input type="button" name="" value="Send Message" class="btn_more mdl_btn" onclick="serviceform('#form_frm');">
+				<input type="submit" name="" value="Send Message" class="btn_more mdl_btn"  onclick="serviceform('#form_frm');">
             </div>
               </form>
 				
@@ -482,7 +483,8 @@ function serviceform(d){
 			<div class="col-lg-6 col-md-6 col-sm-6 qucik_cont frm_gre">
 			<div id="form_error1" class="err_msg">&nbsp;</div>
 
-			<form id="cont_rfm">
+			<form id="cont_rfm" method="post">
+                {% csrf_token %}
 			<div class="inp_cls">
 			<input class="effect-16" type="text" value="" placeholder="" id="form_name" name="form_name" onKeyPress="return chknam(event);"><label>Name</label>
 	        </div>
@@ -495,7 +497,7 @@ function serviceform(d){
 			<div class="inp_cls">
 			<textarea placeholder="" id="form_msg" name="form_msg"  class="effect-16"></textarea><label class="msg_li">Message</label>
 			</div>
-			<input type="button" name="" value="Send Message" class="btn_more" onclick="cont_submit();">
+			<input type="submit" name="" value="Send Message" class="btn_more">
 			</form>
 
 			</div>

@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from bike_app.forms import CustomerAppointmentForm
+from bike_app.forms import ContactServiceForm
 # Create your views here.
 
 
@@ -35,6 +36,14 @@ def contactd41d(request):
     return render(request, 'bike_app/contactd41d.html')
 
 def centers(request):
+    csf_form = ContactServiceForm(request.POST)
+    print(csf_form)
+    if csf_form.is_valid():
+        ConS = csf_form.save(commit=False)
+        ConS.user_appointment = request.user
+        ConS.save()
+
+        return render(request, 'bike_app/centers.html')
     return render(request, 'bike_app/centers.html')
 
 

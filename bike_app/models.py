@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class USER(models.Model):
     email = models.EmailField(primary_key=True)
-    username = models.CharField(max_length=10)
+    username = models.CharField(max_length=20)
     password = models.CharField(max_length=10)
     is_admin = models.BooleanField()
 
@@ -161,3 +161,11 @@ class BIKE_DELIVERY_DETAILS(models.Model):
 
     class Meta:
         verbose_name = "Bike Delivery Detail"
+
+class CONTACT_SERVICE(models.Model):
+    email = models.EmailField(primary_key=True)
+    username = models.CharField(max_length=20)
+    phone = models.IntegerField()
+    message = models.TextField
+
+
