@@ -18,6 +18,7 @@
     <link rel="stylesheet" id="main-style" type="text/css" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet" id="main-style" type="text/css" href="{% static 'css/custom.css' %}">
     <link rel="stylesheet" href="{% static 'css/font-awesome-animation.min.css' %}">
+    <link rel="stylesheet" id="main-style" type="text/css" href="{% static  'css/search.css' %}">
 <script>
 function openNav() {
     document.getElementById("mySidenav").style.width = "70%";
@@ -326,13 +327,27 @@ $(document).ready(function(){
 			<form id="cont_rfm" method="post">
                 {% csrf_token %}
 
-                <div class="row">
-	          <div class="col-lg-4 col-md-offset-4">
-	          	<select  name="SelectServiceCenter" class="SelectServiceCenter">
-		          	<option value="">Select Service Center</option><option value="Oriol Car Services">Oriol Car Services</option><option value="Opuni Automobiles">Opuni Automobiles</option><option value="Rashid Services">Rashid Services</option>
-	          	</select>
-	          </div>
-	          </div>
+             <input class="searchInput" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
+            <ul id="myUL" style="display: none">
+              <li><a href="#">Adele</a></li>
+              <li><a href="#">Agnes</a></li>
+
+              <li><a href="#">Billy</a></li>
+              <li><a href="#">Bob</a></li>
+
+              <li><a href="#">Calvin</a></li>
+              <li><a href="#">Christina</a></li>
+              <li><a href="#">Cindy</a></li>
+            </ul>
+
+{#                <div class="row">#}
+{#	          <div class="col-lg-4 col-md-offset-4">#}
+{#	          	<select  name="SelectServiceCenter" class="SelectServiceCenter">#}
+{#		          	<option value="">Select Service Center</option><option value="Oriol Car Services">Oriol Car Services</option><option value="Opuni Automobiles">Opuni Automobiles</option><option value="Rashid Services">Rashid Services</option>#}
+{#	          	</select>#}
+{#	          </div>#}
+{#	          </div>#}
 			<div class="inp_cls">
 			<input class="effect-16" type="text" value="" placeholder="" id="form_name" name="form_name" onKeyPress="return chknam(event);"><label>Name</label>
 	        </div>
@@ -424,6 +439,36 @@ $(document).ready(function(){
         }
     });
 });
+
+
+function myFunction() {
+
+  // Declare variables
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('myInput');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myUL");
+  li = ul.getElementsByTagName('li');
+
+  if(input.value.length === 0){
+        ul.style.display = "none";
+        return;
+    }else{
+        ul.style.display = "block";
+    }
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+
 </script>
 
 </body>
