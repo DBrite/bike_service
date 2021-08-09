@@ -5,6 +5,7 @@ from bike_app.views import home
 from django.contrib.auth import views as auth_views
 from .import views
 
+
 app_name = 'users'
 
 urlpatterns = [

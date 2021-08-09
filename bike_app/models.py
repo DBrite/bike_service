@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class USER(models.Model):
     email = models.EmailField(primary_key=True)
     username = models.CharField(max_length=20)
-    password = models.CharField(max_length=10)
+    password = models.CharField(max_length=20)
     is_admin = models.BooleanField()
 
     class Meta:
@@ -166,6 +166,6 @@ class CONTACT_SERVICE(models.Model):
     email = models.EmailField(primary_key=True)
     username = models.CharField(max_length=20)
     phone = models.IntegerField()
-    message = models.TextField
+    message = models.TextField()
 
 
