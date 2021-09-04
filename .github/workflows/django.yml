@@ -1,0 +1,23 @@
+name: Django Heroku CI/CD
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6 # Not needed with a .ruby-version file
+    - run: gem install dpl --pre
+    - name: Deploy to Heroku
+      run: |
+        gem install dpl --pre
+        dpl --provider=heroku --app=bike-service --api-key=${{secrets.HEROKU_TOKEN}}
