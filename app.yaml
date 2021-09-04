@@ -1,0 +1,21 @@
+# runtime: python
+# env: flex
+# entrypoint: gunicorn -b :$PORT main:apps.py
+
+# runtime_config:
+#   python_version: 3.8
+  
+runtime: python38
+
+env_variables:
+  DB_HOST: "ec2-54-220-170-192.eu-west-1.compute.amazonaws.com"
+  DB_NAME: "d6vjovaf6a9fv7"
+  DB_PASS: "7f42ea8bb1c5c8c1ff70ea485c27df350c8e3d73f7eb398000e1b45826a05df9"
+  DB_USER: "sdjduftvnloman"
+
+entrypoint: gunicorn bike_service.wsgi --log-file -
+
+  
+handlers:
+  - url: /static
+    static_dir: staticfiles/

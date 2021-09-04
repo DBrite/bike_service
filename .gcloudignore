@@ -1,0 +1,10 @@
+.git
+.gitignore
+.git 
+.gitignore
+*/__pycache__/
+__pycache__/
+.dpl
+.vscode/
+env/
+venv/

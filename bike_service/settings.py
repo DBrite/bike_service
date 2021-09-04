@@ -30,7 +30,9 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    'bike-service.herokuapp.com'
+    'bike-service.herokuapp.com',
+    'bike-service-324610.appspot.com',
+    'bike-service-324610.uc.r.appspot.com',
 ]
 
 # Application definition
@@ -121,7 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Africa/Accra'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
